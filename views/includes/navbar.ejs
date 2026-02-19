@@ -1,0 +1,235 @@
+
+
+ 
+
+<style>
+  /* Glassmorphism Navbar */
+  
+
+  .navbar-custom {
+     /* background: rgba(0, 0, 0, 0.4); dark semi-transparent */
+     background: linear-gradient(90deg, rgba(255, 106, 0, 0.65), rgba(238, 9, 121, 0.65));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1rem;
+  }
+  .navbar-custom.scrolled {
+  background: linear-gradient(90deg, rgba(255, 106, 0, 0.85), rgba(238, 9, 121, 0.85));
+}
+
+
+  /* Brand styling */
+  .navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .navbar-brand:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+  .navbar-brand i {
+    font-size: 1.4rem;
+  }
+
+  /* Nav links */
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  .navbar-nav .nav-link:hover {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  /* Search box */
+  .search-bar {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .search-bar input {
+    border: none;
+    padding: 0.6rem 1.2rem;
+    outline: none;
+    width: 200px;
+    font-size: 0.9rem;
+    background: transparent;
+    color: white;
+  }
+  .search-bar input:focus {
+  width: 260px;
+  transition: width 0.3s ease;
+}
+
+  .search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .search-bar button {
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    border: none;
+    color: white;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  .search-bar button:hover {
+    background: linear-gradient(45deg, #ee0979, #ff6a00);
+  }
+
+  /* Auth buttons */
+  .nav-auth a {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: white !important;
+    transition: background 0.3s ease;
+  }
+  .nav-auth a:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Mobile toggler */
+  .navbar-toggler {
+    border: none;
+  }
+  .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+  }
+  @media (max-width: 576px) {
+  .nav-auth a {
+    font-size: 0;
+    padding: 0.6rem;
+  }
+  .nav-auth a i {
+    font-size: 1rem;
+  }
+}
+.navbar-nav .nav-link {
+  position: relative;
+}
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width 0.3s ease;
+}
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+
+
+
+/* Collapse content stacks vertically on small screens */
+@media (max-width: 767.98px) {
+  #navbarNavAltMarkup {
+    flex-direction: column !important;
+    align-items: flex-start;
+  }
+
+  #navbarNavAltMarkup .navbar-nav {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Make search form full width and smaller */
+  form.search-bar {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  form.search-bar input {
+    width: 70%;
+    min-width: 0;
+  }
+  form.search-bar button {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Auth buttons container stack vertically */
+  .nav-auth {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    width: 100%;
+  }
+
+  .nav-auth a {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem !important;
+    padding: 0.5rem 0;
+  }
+
+  /* Make brand and toggler align horizontally with some spacing */
+  .navbar-brand {
+    flex: 1;
+  }
+  .navbar-toggler {
+    z-index: 1100;
+  }
+}
+
+
+</style>
+
+<nav class="navbar navbar-expand-md navbar-custom sticky-top">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i> AirHub
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links & Search -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <!-- Search -->
+        <form class="d-flex search-bar" role="search">
+          <input type="search" placeholder="Search destinations" aria-label="Search">
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+
+        <!-- Auth buttons -->
+        <div class="navbar-nav nav-auth d-flex align-items-center gap-2">
+          <a href="/listings/new"><i class="fa-solid fa-house"></i> List your home</a>
+          <% if (!currUser) { %>
+            <a href="/signup"><i class="fa-solid fa-user-plus"></i> Sign up</a>
+            <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Log in</a>
+          <% } %>
+          <% if (currUser) { %>
+            <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
