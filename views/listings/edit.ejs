@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+
+    <h3>Edit your listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+        <div class="valid-feedback">Title looks good</div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+        <div class="invalid-feedback">Please write short description</div>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select name="listing[category]" class="form-select" required>
+          <option disabled selected value>-- Select Category --</option>
+          <option value="Adventure" <%= listing.category === 'Adventure' ? 'selected' : '' %>>Adventure</option>
+          <option value="Beach" <%= listing.category === 'Beach' ? 'selected' : '' %>>Beach</option>
+          <option value="Luxury" <%= listing.category === 'Luxury' ? 'selected' : '' %>>Luxury</option>
+          <option value="Budget" <%= listing.category === 'Budget' ? 'selected' : '' %>>Budget</option>
+          <option value="Romantic" <%= listing.category === 'Romantic' ? 'selected' : '' %>>Romantic</option>
+          <option value="Mountain" <%= listing.category === 'Mountain' ? 'selected' : '' %>>Mountain</option>
+          <option value="Castle" <%= listing.category === 'Castle' ? 'selected' : '' %>>Castle</option>
+          <option value="Temple" <%= listing.category === 'Temple' ? 'selected' : '' %>>Temple</option>
+
+          <option value="Forest" <%= listing.category === 'Forest' ? 'selected' : '' %>>Forest</option>
+          <option value="City" <%= listing.category === 'City' ? 'selected' : '' %>>City</option>
+          <option value="Other" <%= listing.category === 'Other' ? 'selected' : '' %>>Other</option>
+         
+          
+        </select>
+        <div class="invalid-feedback">Please choose a valid category</div>
+      </div>
+
+      <!-- Original Image -->
+      <div class="mb-3">
+        Original Listing Image <br>
+        <img src="<%= originalImageUrl %>" class="img-fluid rounded" />
+      </div>
+
+      <!-- Upload New Image -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload New Image</label>
+        <input name="listing[image]" type="file" class="form-control" />
+      </div>
+
+      <!-- Price & Country -->
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+          <div class="invalid-feedback">Price should be valid</div>
+        </div>
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Country name should be valid</div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+        <div class="invalid-feedback">Location should be valid</div>
+      </div>
+
+      <!-- Submit -->
+      <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+  </div>
+</div>
