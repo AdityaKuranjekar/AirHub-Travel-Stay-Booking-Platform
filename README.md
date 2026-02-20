@@ -1,5 +1,5 @@
 # AirHub – Travel Stay Booking Platform 
-
+![AirHub_Pic](AirHub_Pic.jpeg)
 AirHub is a full-stack travel stay booking platform designed to provide a seamless hotel search and reservation experience. It features robust user authentication, dynamic filtering, and an integrated real-time chatbot to assist users in finding their perfect stay.
 
 ##  Features
